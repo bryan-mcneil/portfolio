@@ -17,8 +17,8 @@ export const site = {
     "AI Integration",
   ],
   links: {
-    // TODO: confirm GitHub and LinkedIn profile URLs with Bryan
-    github: "https://github.com/",
+    github: "https://github.com/bryan-mcneil",
+    // TODO: confirm LinkedIn profile URL with Bryan
     linkedin: "https://www.linkedin.com/",
   },
   nav: [
