@@ -18,8 +18,7 @@ export const site = {
   ],
   links: {
     github: "https://github.com/bryan-mcneil",
-    // TODO: confirm LinkedIn profile URL with Bryan
-    linkedin: "https://www.linkedin.com/",
+    linkedin: "https://www.linkedin.com/in/bryan-mcneil-tenorio/",
   },
   nav: [
     { label: "Projects", href: "/projects" },
