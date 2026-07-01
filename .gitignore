@@ -17,6 +17,9 @@
 /.next/
 /out/
 
+# derived copies of content/projects/*/assets (scripts/sync-assets.mjs)
+/public/media/
+
 # production
 /build
 

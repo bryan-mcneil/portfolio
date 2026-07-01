@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bryan McNeil, Portfolio
 
-## Getting Started
+Static portfolio site built with Next.js 16 (App Router, TypeScript, Tailwind CSS v4) and exported as plain files (`output: 'export'`). No server, no database.
 
-First, run the development server:
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static export into out/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`predev`/`prebuild` run `scripts/sync-assets.mjs` automatically, which copies `content/projects/<slug>/assets/` into `public/media/projects/<slug>/` so the export serves them. `public/media/` is derived output and stays out of git.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding or editing a project
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Projects are pure content; no code changes needed. Each one lives in:
 
-## Learn More
+```
+content/projects/<slug>/
+  project-details.md   # frontmatter + markdown body
+  assets/              # optimized screenshots, videos, posters
+```
 
-To learn more about Next.js, take a look at the following resources:
+Frontmatter fields:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Field | Notes |
+|---|---|
+| `title`, `slug`, `tagline` | required |
+| `category` | `personal` or `professional` |
+| `techStack` | list shown as badges |
+| `featured` | hero spotlight on the home page |
+| `inDevelopment` | shows the In Development badge |
+| `order` | sort order across grids |
+| `showcase` | primary media filename inside `assets/` (optional) |
+| `links` | optional `live` / `github` URLs |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`lib/content.ts` loads everything: it parses frontmatter, renders the markdown body to HTML, and lists `assets/` as gallery media. A video named `foo.mp4` picks up `foo-poster.jpg` as its poster automatically.
 
-## Deploy on Vercel
+## Preparing media
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Raw screenshots and clips go in `project-assets/` (not served). Optimize into the project's `assets/` folder as they arrive:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Screenshots: resize (default max 1600px wide) and convert to WebP
+node scripts/optimize-images.mjs --out content/projects/<slug>/assets <file.png> [...]
+
+# Screen recordings: muted 1080p H.264 loop at low bitrate + first-frame poster JPEG
+./scripts/make-loops.sh <raw-clip.mp4> content/projects/<slug>/assets [output-name]
+```
+
+`make-loops.sh` uses system ffmpeg when installed, otherwise the bundled `ffmpeg-static` binary from node_modules.
+
+## Deploy
+
+`npm run build`, then upload the contents of `out/` to Hostinger via hPanel File Manager or FTP. Full launch steps land in Phase 8 of `implementation.md`.
