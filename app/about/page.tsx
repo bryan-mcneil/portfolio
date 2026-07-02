@@ -31,7 +31,7 @@ const photos = [
     file: "moose-marty.webp",
     width: 1200,
     height: 1600,
-    alt: "Two corgis on a lawn: Moose sitting behind a puppy lying in the grass",
+    alt: "Moose the corgi sitting on the lawn behind Marty, a corgi puppy lying in the grass",
     caption: "Moose and Marty",
   },
   {
@@ -128,12 +128,13 @@ export default function AboutPage() {
         <BlurFade inView>
           <p className="max-w-2xl text-muted-foreground">
             I&apos;m married to my lovely wife, Kaitlin, and we share the
-            house with Moose and Mochi. Moose is our corgi, a small bundle of
-            energy who keeps us active. He always wants to play, and he
-            expects nightly cuddles or he gets huffy. Mochi is our black cat
-            and the most loving one I&apos;ve ever met. He demands cuddles so
-            often it borders on annoying, and boy, does he meow loudly for
-            attention.
+            house with Moose, Marty, and Mochi. Moose is our corgi, a small
+            bundle of energy who keeps us active. He always wants to play,
+            and he expects nightly cuddles or he gets huffy. Marty is our
+            other corgi: smart, brave, gentle, and the fastest corgi
+            you&apos;ll ever meet. Mochi is our black cat and the most loving
+            cat I know. He demands cuddles so often it borders on annoying,
+            and boy, does he meow loudly for attention.
           </p>
         </BlurFade>
       </Section>

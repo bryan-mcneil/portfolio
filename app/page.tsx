@@ -86,7 +86,7 @@ export default async function HomePage() {
             of it full stack: frontends in React, backends in PHP and Node, and
             the Azure plumbing underneath. Outside of work I&apos;m finishing a
             philosophy degree, planning the next trip to Japan, and keeping up
-            with Moose the corgi and Mochi the cat.
+            with our corgis, Moose and Marty, and Mochi the cat.
           </p>
           <Button asChild variant="link" className="mt-4 px-0">
             <Link href="/about">
