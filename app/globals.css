@@ -131,3 +131,33 @@
     @apply font-sans;
   }
 }
+
+@page {
+  size: letter;
+  margin: 0.6in 0.7in;
+}
+
+/* Print always renders light-on-white, regardless of the active theme. */
+@media print {
+  :root,
+  .dark {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.44 0 0);
+    --border: oklch(0.85 0 0);
+    --primary: oklch(0.145 0 0);
+    --primary-foreground: oklch(1 0 0);
+  }
+
+  html,
+  body {
+    /* !important so this beats the inline color-scheme next-themes puts on <html>. */
+    color-scheme: light !important;
+    background: #fff !important;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
