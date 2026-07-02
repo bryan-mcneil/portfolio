@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import { ShowcaseMedia } from "@/components/showcase-media";
 
-function InDevelopmentBadge() {
+export function InDevelopmentBadge() {
   return (
     <Badge
       variant="outline"
@@ -22,7 +22,7 @@ function InDevelopmentBadge() {
   );
 }
 
-function TechBadges({ stack }: { stack: readonly string[] }) {
+export function TechBadges({ stack }: { stack: readonly string[] }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {stack.map((tech) => (
