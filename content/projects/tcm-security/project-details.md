@@ -9,7 +9,13 @@ techStack:
   - PHP
 featured: false
 inDevelopment: false
-order: 4
+order: 5
+showcase: tcm-filters-cards.webp
+alt:
+  tcm-blog.webp: TCM Security blog index with a featured post announcing a new Windows forensics course
+  tcm-course-details.webp: Course detail page showing difficulty, duration, and access above the overview and key topics
+  tcm-filters-cards.webp: Academy course catalog with sidebar filters for access type, category, skill level, and duration
+  tcm-membership.webp: Membership page comparing monthly, six month, and annual plans
 ---
 
 At Educate 360, we were tasked with onboarding a new company website, TCM Security. We updated the functionality and look of the academy pages. This was an all-hands project for the dev team. Our tech lead was Davison, and I worked closely with him to help fill in development gaps.

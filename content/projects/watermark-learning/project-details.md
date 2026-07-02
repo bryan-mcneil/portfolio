@@ -10,6 +10,12 @@ techStack:
 featured: false
 inDevelopment: false
 order: 4
+showcase: wl-course-page.webp
+alt:
+  wl-course-page.webp: Agile Business Analysis course page with pricing, duration, and an upcoming sessions sidebar
+  wl-mega-menu.webp: Training mega menu expanded to show certification prep and workshop courses for business analysis
+  wl-popular-courses.webp: Popular courses carousel with workshop cards showing duration and price
+  wl-reviews.webp: Student review cards above a stats banner with years of training and average instructor rating
 ---
 
 At Educate 360, we were tasked with renewing a legacy site, Watermark Learning. It ran an outdated version of PHP that created security risks, and the codebase wasn't scaling well. We upgraded to PHP 8+ and added the Laravel framework to the site.
