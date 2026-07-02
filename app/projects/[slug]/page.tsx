@@ -24,7 +24,16 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) return {};
-  return { title: project.title, description: project.tagline };
+  return {
+    title: project.title,
+    description: project.tagline,
+    openGraph: {
+      type: "website",
+      title: project.title,
+      description: project.tagline,
+      url: `/projects/${slug}/`,
+    },
+  };
 }
 
 export default async function ProjectPage({
@@ -47,7 +56,10 @@ export default async function ProjectPage({
 
   return (
     <article className="mx-auto max-w-5xl px-4 py-16 sm:px-6">
-      <BlurFade>
+      {/* CSS entrance, and none at all on the showcase and prose below: the
+          motion BlurFade holds content invisible until hydration, which turns
+          whichever element is largest into a slow LCP. */}
+      <div className="animate-blur-fade motion-reduce:animate-none">
         <Button asChild variant="ghost" size="sm" className="-ml-2 mb-6">
           <Link href="/projects">
             <ArrowLeft data-icon="inline-start" />
@@ -95,27 +107,23 @@ export default async function ProjectPage({
             </div>
           )}
         </header>
-      </BlurFade>
+      </div>
 
       {project.showcase && (
-        <BlurFade delay={0.1}>
-          {/* relative + absolute child so a tall clip can't stretch the ratio box */}
-          <div className="relative mt-10 aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted/40">
-            <ShowcaseMedia
-              media={project.showcase}
-              alt={`${project.title} demo`}
-              className="absolute inset-0 size-full object-contain"
-            />
-          </div>
-        </BlurFade>
+        // relative + absolute child so a tall clip can't stretch the ratio box
+        <div className="relative mt-10 aspect-video w-full overflow-hidden rounded-xl border border-border/60 bg-muted/40">
+          <ShowcaseMedia
+            media={project.showcase}
+            alt={project.showcase.alt ?? `${project.title} demo`}
+            className="absolute inset-0 size-full object-contain"
+          />
+        </div>
       )}
 
-      <BlurFade delay={0.15}>
-        <div
-          className="prose prose-neutral dark:prose-invert mt-10 max-w-3xl prose-headings:tracking-tight"
-          dangerouslySetInnerHTML={{ __html: project.html }}
-        />
-      </BlurFade>
+      <div
+        className="prose prose-neutral dark:prose-invert mt-10 max-w-3xl prose-headings:tracking-tight"
+        dangerouslySetInnerHTML={{ __html: project.html }}
+      />
 
       {gallery.length > 0 && (
         <BlurFade inView>

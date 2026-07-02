@@ -15,7 +15,7 @@ export function Footer() {
           <Link
             href={`mailto:${site.email}`}
             aria-label="Email"
-            className="transition-colors hover:text-foreground"
+            className="rounded-md transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             <Mail className="size-4.5" />
           </Link>
@@ -24,7 +24,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="transition-colors hover:text-foreground"
+            className="rounded-md transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             <GitHubIcon className="size-4.5" />
           </Link>
@@ -33,7 +33,7 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="transition-colors hover:text-foreground"
+            className="rounded-md transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
           >
             <LinkedInIcon className="size-4.5" />
           </Link>

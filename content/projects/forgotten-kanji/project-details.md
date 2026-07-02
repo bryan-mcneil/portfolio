@@ -14,6 +14,12 @@ featured: true
 inDevelopment: true
 order: 2
 showcase: kanji-drawing.mp4
+alt:
+  kanji-drawing.mp4: Forgotten Kanji drawing test where a kanji character is traced by hand on a phone screen
+  kanji-hit-movement.mp4: Battle effects gallery cycling through damage, healing, and screen shake effects over a glowing kanji
+  kanji-battle-screen.webp: Battle screen with two ink beast enemies, their health bars, and the player's HP, MP, and SP gauges
+  kanji-home-screen.webp: Title screen for The Forgotten Kanji with elemental kanji symbols and New Game and Continue buttons
+  kanji-node-map.webp: World map screen with a winding path of battle and story nodes marked by kanji
 ---
 
 Forgotten Kanji is my largest project so far: a JRPG-styled mobile game where learning Japanese is the gameplay. Quests, boss fights, and NPC conversations all center on the basics of the language, and the puzzles and battle system run on what you've actually learned.

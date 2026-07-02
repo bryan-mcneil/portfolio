@@ -15,6 +15,9 @@ featured: true
 inDevelopment: false
 order: 1
 showcase: helpdesk-summary.mp4
+alt:
+  helpdesk-summary.mp4: Helpdesk ticket view where the AI Summarize action condenses a full email conversation into a short overview
+  helpdesk-polish.mp4: Helpdesk reply editor where the AI Polish action rewrites a drafted response into a cleaner reply
 ---
 
 Helpdesk is a ticketing application with a single Admin role and multiple Agent roles. The dashboard opens with the numbers that matter: total tickets, open tickets, resolved by AI, AI resolution rate, average resolution time, and tickets closed by me. A bar chart tracks ticket volume over the last 30 days.

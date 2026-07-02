@@ -15,36 +15,36 @@ const MEDIA_BASE = "/media/about";
 const photos = [
   {
     file: "bryan-kaitlin.webp",
-    width: 1200,
-    height: 1600,
+    width: 640,
+    height: 853,
     alt: "Bryan and Kaitlin taking a selfie in front of Osaka Castle",
     caption: "Kaitlin and me at Osaka Castle",
   },
   {
     file: "bryan-bg-forest.webp",
-    width: 1200,
-    height: 900,
+    width: 640,
+    height: 480,
     alt: "Bryan in a knit hat smiling in front of bright red and orange autumn trees",
     caption: "Chasing autumn color",
   },
   {
     file: "moose-marty.webp",
-    width: 1200,
-    height: 1600,
+    width: 640,
+    height: 853,
     alt: "Moose the corgi sitting on the lawn behind Marty, a corgi puppy lying in the grass",
     caption: "Moose and Marty",
   },
   {
     file: "bryan.webp",
-    width: 1200,
-    height: 1600,
+    width: 640,
+    height: 853,
     alt: "Bryan on a patio raising a glass with a rainbow arcing overhead",
     caption: "Right place, right rainbow",
   },
   {
     file: "mochi.webp",
-    width: 1200,
-    height: 1600,
+    width: 640,
+    height: 853,
     alt: "Mochi the black cat sitting on a banister in a bow tie collar",
     caption: "Mochi, between cuddle demands",
   },
@@ -55,7 +55,9 @@ export default function AboutPage() {
     <>
       <section className="mx-auto max-w-5xl px-4 pt-16 pb-2 sm:px-6 sm:pt-20">
         <div className="grid items-center gap-10 md:grid-cols-[1fr_minmax(0,300px)]">
-          <BlurFade>
+          {/* No mount-time BlurFade on the intro: it's the LCP element, and
+              holding it invisible until hydration costs Lighthouse points. */}
+          <div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
               About Me
             </h1>
@@ -66,8 +68,9 @@ export default function AboutPage() {
               approach the job, what I chase off the clock, and the crew
               waiting at home.
             </p>
-          </BlurFade>
-          <BlurFade delay={0.15}>
+          </div>
+          {/* The portrait is the LCP element on mobile, so it doesn't animate either. */}
+          <div>
             <div className="relative mx-auto w-60 max-w-full sm:w-72">
               <div
                 aria-hidden
@@ -78,13 +81,13 @@ export default function AboutPage() {
                 <img
                   src={`${MEDIA_BASE}/profile-portfolio.webp`}
                   alt={site.name}
-                  width={1080}
-                  height={1630}
+                  width={640}
+                  height={966}
                   className="w-full"
                 />
               </div>
             </div>
-          </BlurFade>
+          </div>
         </div>
       </section>
 

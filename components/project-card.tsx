@@ -15,7 +15,7 @@ export function InDevelopmentBadge() {
   return (
     <Badge
       variant="outline"
-      className="border-amber-600/40 text-amber-600 dark:border-amber-400/40 dark:text-amber-400"
+      className="border-amber-700/40 text-amber-700 dark:border-amber-400/40 dark:text-amber-400"
     >
       In Development
     </Badge>
@@ -70,7 +70,7 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
           <div className="relative aspect-video w-full border-b border-border/40 bg-muted/40">
             <ShowcaseMedia
               media={project.showcase}
-              alt={`${project.title} demo`}
+              alt={project.showcase.alt ?? `${project.title} demo`}
               className="absolute inset-0 size-full object-contain"
             />
           </div>

@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const BackgroundBeams = React.memo(
   ({ className }: { className?: string }) => {
+    const reducedMotion = useReducedMotion();
     const paths = [
       "M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875",
       "M-373 -197C-373 -197 -305 208 159 335C623 462 691 867 691 867",
@@ -79,18 +80,20 @@ export const BackgroundBeams = React.memo(
             strokeWidth="0.5"
           ></path>
 
-          {paths.map((path, index) => (
-            <motion.path
-              key={`path-` + index}
-              d={path}
-              stroke={`url(#linearGradient-${index})`}
-              strokeOpacity="0.4"
-              strokeWidth="0.5"
-            ></motion.path>
-          ))}
+          {!reducedMotion &&
+            paths.map((path, index) => (
+              <motion.path
+                key={`path-` + index}
+                d={path}
+                stroke={`url(#linearGradient-${index})`}
+                strokeOpacity="0.4"
+                strokeWidth="0.5"
+              ></motion.path>
+            ))}
           <defs>
-            {paths.map((path, index) => (
-              <motion.linearGradient
+            {!reducedMotion &&
+              paths.map((path, index) => (
+                <motion.linearGradient
                 id={`linearGradient-${index}`}
                 key={`gradient-${index}`}
                 initial={{
@@ -112,12 +115,12 @@ export const BackgroundBeams = React.memo(
                   delay: Math.random() * 10,
                 }}
               >
-                <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                <stop stopColor="#18CCFC"></stop>
-                <stop offset="32.5%" stopColor="#6344F5"></stop>
-                <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
-              </motion.linearGradient>
-            ))}
+                  <stop stopColor="#18CCFC" stopOpacity="0"></stop>
+                  <stop stopColor="#18CCFC"></stop>
+                  <stop offset="32.5%" stopColor="#6344F5"></stop>
+                  <stop offset="100%" stopColor="#AE48FF" stopOpacity="0"></stop>
+                </motion.linearGradient>
+              ))}
 
             <radialGradient
               id="paint0_radial_242_278"

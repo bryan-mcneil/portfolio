@@ -24,6 +24,8 @@ export interface ProjectMedia {
   type: "image" | "video";
   /** Poster image URL for videos, when <name>-poster.jpg exists next to <name>.mp4 */
   poster?: string;
+  /** Alt text (aria-label for videos) from the frontmatter `alt` map. */
+  alt?: string;
 }
 
 export interface Project {
@@ -59,19 +61,26 @@ function posterFor(file: string, assets: Set<string>): string | undefined {
   return assets.has(poster) ? poster : undefined;
 }
 
-function toMedia(slug: string, file: string, assets: Set<string>): ProjectMedia | undefined {
+function toMedia(
+  slug: string,
+  file: string,
+  assets: Set<string>,
+  altMap: Record<string, string>,
+): ProjectMedia | undefined {
   const ext = path.extname(file).toLowerCase();
+  const alt = altMap[file];
   if (VIDEO_EXTENSIONS.has(ext)) {
     const poster = posterFor(file, assets);
     return {
       src: assetUrl(slug, file),
       type: "video",
       ...(poster ? { poster: assetUrl(slug, poster) } : {}),
+      ...(alt ? { alt } : {}),
     };
   }
   // Posters belong to their video, not the gallery.
   if (IMAGE_EXTENSIONS.has(ext) && !/-poster\.(jpg|jpeg|webp|png)$/i.test(file)) {
-    return { src: assetUrl(slug, file), type: "image" };
+    return { src: assetUrl(slug, file), type: "image", ...(alt ? { alt } : {}) };
   }
   return undefined;
 }
@@ -106,8 +115,16 @@ async function loadProject(slug: string): Promise<Project> {
 
   const assetFiles = listAssets(slug);
   const assetSet = new Set(assetFiles);
+  const altMap: Record<string, string> = data.alt ?? {};
+  for (const file of Object.keys(altMap)) {
+    if (!assetSet.has(file)) {
+      throw new Error(
+        `content/projects/${slug}/project-details.md: alt entry "${file}" not found in assets/`,
+      );
+    }
+  }
   const media = assetFiles
-    .map((file) => toMedia(slug, file, assetSet))
+    .map((file) => toMedia(slug, file, assetSet, altMap))
     .filter((m): m is ProjectMedia => m !== undefined);
 
   let showcase: ProjectMedia | undefined;
@@ -117,7 +134,7 @@ async function loadProject(slug: string): Promise<Project> {
         `content/projects/${slug}/project-details.md: showcase "${data.showcase}" not found in assets/`,
       );
     }
-    showcase = toMedia(slug, data.showcase, assetSet);
+    showcase = toMedia(slug, data.showcase, assetSet, altMap);
   }
 
   return {

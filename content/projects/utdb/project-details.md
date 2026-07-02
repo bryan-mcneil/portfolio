@@ -13,6 +13,11 @@ featured: false
 inDevelopment: false
 order: 5
 showcase: cnh-homepage.webp
+alt:
+  cnh-api.webp: API documentation page listing course endpoints with a live JSON response from the getallcourses endpoint
+  cnh-homepage.webp: New Horizons training database home page with tiles for courses, providers, classes, and search
+  cnh-report-history.webp: Class changes report with rows color coded as new, updated, or deleted
+  cnh-report-info.webp: Class detail form showing course title, session number, dates, modality, and scheduling notes
 ---
 
 United Training hired me to develop, deploy, and manage UTDB, the company's public class schedule management system. The company later became New Horizons as it joined the Educate 360 umbrella, and the system grew with it.

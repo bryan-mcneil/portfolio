@@ -15,6 +15,8 @@ featured: false
 inDevelopment: true
 order: 3
 showcase: gadgetdrop.mp4
+alt:
+  gadgetdrop.mp4: GadgetDrop home page scrolling past a featured review carousel and a browse-by-category row of gadget photos
 ---
 
 GadgetDrop is an Amazon affiliate blog and my first project built with Claude Code. I wanted to find the limits of AI-assisted development and learn firsthand where it shines and where it falls apart.

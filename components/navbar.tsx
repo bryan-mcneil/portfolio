@@ -13,7 +13,10 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur print:hidden">
       <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="font-semibold tracking-tight">
+        <Link
+          href="/"
+          className="rounded-md font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+        >
           {site.name}
         </Link>
         <div className="flex items-center gap-1 sm:gap-2">
@@ -23,8 +26,9 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-md px-2.5 py-1.5 text-sm transition-colors hover:text-foreground sm:px-3",
+                  "rounded-md px-2.5 py-1.5 text-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:px-3",
                   active
                     ? "text-foreground font-medium"
                     : "text-muted-foreground",

@@ -13,8 +13,9 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
-/** "helpdesk-polish.mp4" -> "helpdesk polish", for alt text and slide labels. */
+/** Frontmatter alt text when present, else "helpdesk-polish.mp4" -> "helpdesk polish". */
 function mediaLabel(media: ProjectMedia): string {
+  if (media.alt) return media.alt;
   const file = media.src.split("/").pop() ?? media.src;
   return file.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
 }
