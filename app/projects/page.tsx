@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
 import { getProjectsByCategory } from "@/lib/content";
+import { techIcons } from "@/lib/tech-icons";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { IconCloud } from "@/components/ui/icon-cloud";
 import { Section } from "@/components/section";
 import { ProjectCard } from "@/components/project-card";
 
@@ -21,19 +23,24 @@ export default async function ProjectsPage() {
     <>
       {/* No mount-time BlurFade here: the intro paragraph is the LCP element,
           and holding it invisible until hydration costs Lighthouse points. */}
-      <div className="mx-auto max-w-5xl px-4 pt-16 sm:px-6 sm:pt-20">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Projects
-        </h1>
-        <p className="mt-4 max-w-3xl text-muted-foreground">
-          I build full stack: React and TypeScript up front, PHP, Laravel, and
-          Node behind them, PostgreSQL or MySQL underneath, and Azure keeping
-          it all running. Lately I&apos;ve been wiring AI into real workflows,
-          from auto-resolving support tickets to grading handwritten kanji.
-          The professional work adds the other half of the job: leading
-          projects end to end, coordinating across departments, and shipping
-          on schedule.
-        </p>
+      <div className="mx-auto grid max-w-5xl items-center gap-8 px-4 pt-16 sm:px-6 sm:pt-20 md:grid-cols-[1fr_minmax(0,340px)]">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+            Projects
+          </h1>
+          <p className="mt-4 max-w-3xl text-muted-foreground">
+            I build full stack: React and TypeScript up front, PHP, Laravel,
+            and Node behind them, PostgreSQL or MySQL underneath, and Azure
+            keeping it all running. Lately I&apos;ve been wiring AI into real
+            workflows, from auto-resolving support tickets to grading
+            handwritten kanji. The professional work adds the other half of
+            the job: leading projects end to end, coordinating across
+            departments, and shipping on schedule.
+          </p>
+        </div>
+        <div className="hidden justify-center md:flex">
+          <IconCloud icons={techIcons} size={320} />
+        </div>
       </div>
 
       <Section

@@ -59,6 +59,9 @@ export function ProjectCard({ project }: { project: Project }) {
 
 /** Larger spotlight treatment with showcase media, for the featured section. */
 export function FeaturedProjectCard({ project }: { project: Project }) {
+  const backdrop =
+    project.showcase?.poster ??
+    (project.showcase?.type === "image" ? project.showcase.src : undefined);
   return (
     <Link
       href={`/projects/${project.slug}`}
@@ -67,7 +70,19 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
       <Card className="h-full pt-0 ring-primary/20 transition duration-200 group-hover:-translate-y-0.5 group-hover:ring-primary/50">
         {/* relative + absolute child so a tall clip can't stretch the ratio box */}
         {project.showcase && (
-          <div className="relative aspect-video w-full border-b border-border/40 bg-muted/40">
+          <div className="relative aspect-video w-full overflow-hidden border-b border-border/40 bg-muted/40">
+            {/* Blurred cover of the same frame fills the letterbox gutters
+                that object-contain leaves around portrait clips. */}
+            {backdrop && (
+              // eslint-disable-next-line @next/next/no-img-element -- static export serves pre-optimized files
+              <img
+                src={backdrop}
+                alt=""
+                aria-hidden
+                loading="lazy"
+                className="absolute inset-0 size-full scale-125 object-cover opacity-50 blur-2xl"
+              />
+            )}
             <ShowcaseMedia
               media={project.showcase}
               alt={project.showcase.alt ?? `${project.title} demo`}
