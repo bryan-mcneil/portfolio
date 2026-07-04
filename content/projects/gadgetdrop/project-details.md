@@ -17,6 +17,9 @@ order: 3
 showcase: gadgetdrop.mp4
 alt:
   gadgetdrop.mp4: GadgetDrop home page scrolling past a featured review carousel and a browse-by-category row of gadget photos
+  gadgetdrop-drop-price.mp4: Drop Price game where visitors guess a featured gadget's price in five tries with hot or cold feedback
+  gd-admin-post.webp: Admin post editor with title, slug, excerpt, and markdown body beside author and publish settings
+  gd-mega-menu.webp: Trending mega menu listing ranked reviews with product thumbnails and publish dates
 ---
 
 GadgetDrop is an Amazon affiliate blog and my first project built with Claude Code. I wanted to find the limits of AI-assisted development and learn firsthand where it shines and where it falls apart.

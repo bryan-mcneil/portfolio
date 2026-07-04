@@ -83,10 +83,10 @@ export default function AboutPage() {
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
               I&apos;m {site.name}, a full-stack software engineer with{" "}
-              {site.yearsExperience} years of building for the web. The
-              projects cover the work. This page covers the rest: how I
-              approach the job, what I chase off the clock, and the crew
-              waiting at home.
+              {site.yearsExperience} years of experience building web applications.
+              It has been a unique journey over the years, with ups and downs,
+              but I&apos;ve learned a lot and grown as a developer.
+              Here you can learn more about me outside of work, my philosophy degree, travel experiences, and the crew at home.
             </p>
           </div>
           {/* The portrait is the LCP element on mobile, so it doesn't animate.

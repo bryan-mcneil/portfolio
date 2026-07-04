@@ -10,7 +10,7 @@ export const site = {
   skills: [
     "TypeScript",
     "React",
-    "Next.js",
+    "Python",
     "PHP / Laravel",
     "PostgreSQL / MySQL",
     "Azure",

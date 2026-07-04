@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import AutoHeight from "embla-carousel-auto-height";
 
 import type { ProjectMedia } from "@/lib/content";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
@@ -24,10 +25,13 @@ function GalleryMedia({
   media,
   label,
   className,
+  onSize,
 }: {
   media: ProjectMedia;
   label: string;
   className?: string;
+  /** Fires once the media knows its intrinsic size (metadata/load). */
+  onSize?: () => void;
 }) {
   if (media.type === "video") {
     return (
@@ -41,12 +45,19 @@ function GalleryMedia({
         playsInline
         preload="none"
         aria-label={label}
+        onLoadedMetadata={onSize}
       />
     );
   }
   return (
     // eslint-disable-next-line @next/next/no-img-element -- static export serves pre-optimized files; next/image adds nothing here
-    <img className={className} src={media.src} alt={label} loading="lazy" />
+    <img
+      className={className}
+      src={media.src}
+      alt={label}
+      loading="lazy"
+      onLoad={onSize}
+    />
   );
 }
 
@@ -125,15 +136,26 @@ export function ProjectGallery({
           <DialogTitle className="sr-only">
             {projectTitle} media gallery
           </DialogTitle>
-          <Carousel setApi={setApi} opts={{ startIndex, loop: true }}>
-            <CarouselContent>
+          <Carousel
+            setApi={setApi}
+            opts={{ startIndex, loop: true }}
+            plugins={[AutoHeight()]}
+          >
+            {/* items-start lets each slide keep its own content height so
+                AutoHeight can shrink the dialog to fit the current media. */}
+            <CarouselContent className="items-start transition-[height] duration-300">
               {items.map((media) => (
                 <CarouselItem key={media.src}>
-                  <div className="flex max-h-[80vh] items-center justify-center">
+                  <div className="flex justify-center">
                     <GalleryMedia
                       media={media}
                       label={mediaLabel(media)}
                       className="max-h-[80vh] w-auto max-w-full rounded-md object-contain"
+                      // AutoHeight measures slides once at init, and embla's
+                      // resize observer only watches the scroll axis (width),
+                      // so a slide growing taller after its media loads never
+                      // re-measures on its own. reInit re-runs the plugin.
+                      onSize={() => api?.reInit()}
                     />
                   </div>
                 </CarouselItem>
