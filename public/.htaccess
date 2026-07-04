@@ -1,3 +1,7 @@
+# Serve the styled export at out/404.html for unknown URLs. Apache/LiteSpeed
+# won't use it without this; the host's generic error page shows otherwise.
+ErrorDocument 404 /404.html
+
 # Next.js metadata routes export as extensionless files (e.g. /opengraph-image,
 # /projects/<slug>/opengraph-image). Force the image type so social scrapers
 # accept them.

@@ -53,4 +53,25 @@ node scripts/optimize-images.mjs --out content/projects/<slug>/assets <file.png>
 
 ## Deploy
 
-`npm run build`, then upload the contents of `out/` to Hostinger via hPanel File Manager or FTP. Full launch steps land in Phase 8 of `implementation.md`.
+The site is plain static files. Every deploy is the same three steps:
+
+```bash
+npm run build          # regenerates out/
+# upload the CONTENTS of out/ (not the folder) to the Hostinger public_html root
+# hard-refresh the live site to confirm
+```
+
+Upload with either hPanel > File Manager (drag the contents of `out/` into `public_html`, overwrite) or FTP to the same directory. `out/.htaccess` ships with the upload and must land in `public_html`; it wires up the styled 404 page, forces `image/png` on the extensionless Open Graph routes so link previews render, and sets long cache headers on the fingerprinted `_next/static` assets.
+
+Absolute URLs (canonical, `og:url`, `og:image`) are baked in at build time from `site.url` in `lib/site.ts`. If the domain ever changes, edit that one constant, rebuild, and re-upload; nothing else references the domain.
+
+### First-time launch (one-time)
+
+1. Buy the domain and point it at the Hostinger site; enable free SSL in hPanel and turn on **Force HTTPS** (leave HTTP→HTTPS and www canonicalization to hPanel, not `.htaccess`, to avoid redirect loops).
+2. Confirm `site.url` in `lib/site.ts` matches the live domain, then `npm run build`.
+3. Upload the contents of `out/` to `public_html`.
+4. Smoke test on the live domain: every route, video autoplay, theme toggle, resume PDF download, the mailto button, a shared link preview (LinkedIn), and mobile.
+
+### Future `.pro` → `.dev` migration
+
+Change `site.url`, rebuild, re-upload, and add a 301 redirect from the old domain in hPanel.

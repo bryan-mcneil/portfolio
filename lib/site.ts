@@ -3,7 +3,8 @@ export const site = {
   title: "Full-Stack Software Engineer",
   yearsExperience: "8+",
   email: "bmcneil.t@gmail.com",
-  // TODO: replace with the real domain once purchased (bryanmcneil.pro)
+  // Live domain. Canonical, og:url, and og:image absolute URLs derive from this
+  // at build time; change here (and rebuild) to migrate domains later.
   url: "https://bryanmcneil.pro",
   description:
     "Portfolio of Bryan McNeil, a full-stack software engineer with 8+ years of experience across TypeScript, React, PHP, and Azure.",
