@@ -13,7 +13,7 @@ techStack:
   - Ubuntu
 featured: false
 inDevelopment: false
-order: 7
+order: 4
 showcase: e360-home.webp
 alt:
   e360-home.webp: Educate 360 home page hero with brand navigation and course search

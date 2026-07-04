@@ -9,7 +9,7 @@ techStack:
   - Bootstrap
 featured: false
 inDevelopment: false
-order: 4
+order: 6
 showcase: wl-course-page.webp
 alt:
   wl-course-page.webp: Agile Business Analysis course page with pricing, duration, and an upcoming sessions sidebar

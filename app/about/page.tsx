@@ -52,21 +52,21 @@ const snapshots = [
     width: 640,
     height: 480,
     alt: "Bryan in a knit hat smiling in front of bright red and orange autumn trees",
-    caption: "Chasing autumn color",
+    caption: "Seeing the fall colors in Nikko, Japan",
   },
   {
     file: "bryan.webp",
     width: 640,
     height: 853,
     alt: "Bryan on a patio raising a glass with a rainbow arcing overhead",
-    caption: "Right place, right rainbow",
+    caption: "Right place, right rainbow, visiting family in Maryland",
   },
   {
     file: "mochi.webp",
     width: 640,
     height: 853,
     alt: "Mochi the black cat sitting on a banister in a bow tie collar",
-    caption: "Mochi, between cuddle demands",
+    caption: "Mochi waiting for his fish treats",
   },
 ];
 
@@ -135,17 +135,17 @@ export default function AboutPage() {
                 Outside of programming, I&apos;m an avid learner. Right now
                 that means a post-baccalaureate degree in philosophy.
                 I&apos;ve always loved the big questions: who we are as
-                people, what&apos;s real, how to face the existential weight
+                people, what are the fundamentals of reality, how to face the existential weight
                 we all carry, and what it means to live a good life. I&apos;ll
                 follow any idea, openly and freely, if it gets me closer to
                 capital &quot;T&quot; Truth.
               </p>
               <p>
-                Beyond the books, I travel. Germany and Brazil were great
-                trips; Japan turned into a habit. My wife and I have been
-                three times now, and we still find something new on every
-                visit. We&apos;re probably addicted. We&apos;ve decided not to
-                fight it.
+                Beyond the books, I love traveling to experience different cultures.
+                I&apos;ve been to Germany, Brazil, and Japan. Japan has turned into a habit.
+                My wife and I have been on three trips there now over the last 8 years,
+                and we still find something new every time we go. We&apos;re probably addicted.
+                We&apos;ve decided not to fight it.
               </p>
             </div>
           </BlurFade>
@@ -173,16 +173,21 @@ export default function AboutPage() {
             />
           </BlurFade>
           <BlurFade inView className="-order-1 md:order-2">
-            <p className="max-w-2xl text-muted-foreground">
-              I&apos;m married to my lovely wife, Kaitlin, and we share the
-              house with Moose, Marty, and Mochi. Moose is our corgi, a small
-              bundle of energy who keeps us active. He always wants to play,
-              and he expects nightly cuddles or he gets huffy. Marty is our
-              other corgi: smart, brave, gentle, and the fastest corgi
-              you&apos;ll ever meet. Mochi is our black cat and the most
-              loving cat I know. He demands cuddles so often it borders on
-              annoying, and boy, does he meow loudly for attention.
-            </p>
+            <div className="max-w-2xl space-y-4 text-muted-foreground">
+              <p className="max-w-2xl text-muted-foreground">
+                I&apos;m married to my lovely wife, Kaitlin, and we share the
+                house with Moose and Mochi. Moose is our corgi, a small
+                bundle of energy and anxiety who keeps us active. He always wants to play,
+                and he expects nightly cuddles or he gets huffy. Mochi is our black cat and the most
+                loving cat I know. He demands cuddles so often it borders on
+                annoying, and boy, does he meow loudly for attention.
+              </p>
+              <p>
+                Sadly, we lost our other corgi Marty in 2025. He was one of the smartest, sweetest dogs I&apos;ve ever known.
+                We keep him close in our hearts everyday and remember him fondly. We try to honor his memory daily
+                by dedicating a section of the house for him with his toys and photos of him, so we can drop by to say hi.
+              </p>
+            </div>
           </BlurFade>
         </div>
       </Section>

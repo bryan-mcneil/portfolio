@@ -92,7 +92,7 @@ function required<T>(value: T | undefined, field: string, slug: string): T {
   return value;
 }
 
-async function renderMarkdown(markdown: string): Promise<string> {
+export async function renderMarkdown(markdown: string): Promise<string> {
   const file = await unified()
     .use(remarkParse)
     .use(remarkGfm)

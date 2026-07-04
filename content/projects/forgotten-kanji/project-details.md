@@ -20,6 +20,8 @@ alt:
   kanji-battle-screen.webp: Battle screen with two ink beast enemies, their health bars, and the player's HP, MP, and SP gauges
   kanji-home-screen.webp: Title screen for The Forgotten Kanji with elemental kanji symbols and New Game and Continue buttons
   kanji-node-map.webp: World map screen with a winding path of battle and story nodes marked by kanji
+  kanji-map-editor.webp: The starting village being built in the Tiled map editor, with layers, tilesets, and the pixel-art town laid out on a grid
+  kanji-world-map.webp: Overworld map linking towns and villages, ForestCastle, YellowTown, RedTown, BlueVillage, and RedVillage, along branching dirt paths
 ---
 
 Forgotten Kanji is my largest project so far: a JRPG-styled mobile game where learning Japanese is the gameplay. Quests, boss fights, and NPC conversations all center on the basics of the language, and the puzzles and battle system run on what you've actually learned.

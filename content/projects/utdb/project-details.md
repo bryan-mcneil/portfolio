@@ -11,11 +11,11 @@ techStack:
   - Azure Data Factory
 featured: false
 inDevelopment: false
-order: 6
-showcase: cnh-homepage.webp
+order: 7
+showcase: utdb-schedule.webp
 alt:
   cnh-api.webp: API documentation page listing course endpoints with a live JSON response from the getallcourses endpoint
-  cnh-homepage.webp: New Horizons training database home page with tiles for courses, providers, classes, and search
+  utdb-schedule.webp: Public course page for a Microsoft Azure course with an upcoming class dates and times sidebar listing sessions, times, and enrollment prices
   cnh-report-history.webp: Class changes report with rows color coded as new, updated, or deleted
   cnh-report-info.webp: Class detail form showing course title, session number, dates, modality, and scheduling notes
 ---

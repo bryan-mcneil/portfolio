@@ -2,20 +2,23 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 
 import { getFeaturedProjects, getProjectsByCategory } from "@/lib/content";
+import { getEssay } from "@/lib/essay";
 import { site } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { Hero } from "@/components/hero";
 import { Section } from "@/components/section";
+import { EssaySection } from "@/components/essay-section";
 import { FeaturedProjectCard, ProjectCard } from "@/components/project-card";
 import { CopyEmailButton } from "@/components/copy-email-button";
 import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 
 export default async function HomePage() {
-  const [featured, personal, professional] = await Promise.all([
+  const [featured, personal, professional, essay] = await Promise.all([
     getFeaturedProjects(),
     getProjectsByCategory("personal"),
     getProjectsByCategory("professional"),
+    getEssay(),
   ]);
 
   return (
@@ -83,10 +86,9 @@ export default async function HomePage() {
         <BlurFade inView>
           <p className="max-w-2xl text-muted-foreground">
             I&apos;ve built software professionally for more than 8 years, most
-            of it full stack: frontends in React, backends in PHP and Node, and
-            the Azure plumbing underneath. Outside of work I&apos;m finishing a
+            of it full stack. Outside of work I&apos;m finishing a
             philosophy degree, planning the next trip to Japan, and keeping up
-            with our corgis, Moose and Marty, and Mochi the cat.
+            with my little family, Kaitlin, Moose and Mochi.
           </p>
           <Button asChild variant="link" className="mt-4 px-0">
             <Link href="/about">
@@ -96,6 +98,8 @@ export default async function HomePage() {
           </Button>
         </BlurFade>
       </Section>
+
+      <EssaySection essay={essay} />
 
       <section id="contact" className="border-t border-border/40">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 sm:py-20">
