@@ -17,6 +17,7 @@ showcase: kanji-drawing.mp4
 alt:
   kanji-drawing.mp4: Forgotten Kanji drawing test where a kanji character is traced by hand on a phone screen
   kanji-hit-movement.mp4: Battle effects gallery cycling through damage, healing, and screen shake effects over a glowing kanji
+  kanji-overworld-walk.mp4: The player character walking through a flower-dotted grass field on the overworld map, next to a dirt path
   kanji-battle-screen.webp: Battle screen with two ink beast enemies, their health bars, and the player's HP, MP, and SP gauges
   kanji-home-screen.webp: Title screen for The Forgotten Kanji with elemental kanji symbols and New Game and Continue buttons
   kanji-node-map.webp: World map screen with a winding path of battle and story nodes marked by kanji
