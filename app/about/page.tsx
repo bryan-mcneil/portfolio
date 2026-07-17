@@ -116,13 +116,17 @@ export default function AboutPage() {
       <Section id="how-i-work" title="How I Work">
         <BlurFade inView>
           <p className="max-w-2xl text-muted-foreground">
-            The work still holds my attention after all these years. Every
-            company runs on systems with their own
-            architecture, history, and quirks, and getting them all to talk to
-            each other never runs out of interesting problems. The people have
-            taught me the most, though. The best teams I&apos;ve worked on
-            moved fast and treated each other with genuine kindness and
-            respect. I try to bring both to every project.
+            I'm the type who wants to know all the details of a system or project.
+            I want to understand the details so I can answer any questions with total accuracy.
+            When a completely new technology lands on my desk, I jump straight in.
+            I read the docs, follow the tutorials, and spin up local test environments, so
+            whatever I build I have confidence in it working right.
+            I'll admit I can be a bit of a lone wolf when programming.
+            That independence just comes from wanting full working knowledge, so when it comes time
+            to fix or build something, I can do it confidently and quickly.
+            I've learned over the years that every company operates differently and brings its own weird quirks.
+            My true core skill isn't just writing software.
+            It's adapting to those unique environments and stepping into whatever role the team needs most.
           </p>
         </BlurFade>
       </Section>

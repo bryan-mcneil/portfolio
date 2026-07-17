@@ -26,7 +26,7 @@ alt:
 
 Forgotten Kanji is my largest project so far: a JRPG-styled mobile game where learning Japanese is the gameplay. Quests, boss fights, and NPC conversations all center on the basics of the language, and the puzzles and battle system run on what you've actually learned.
 
-The learning engine uses FSRS spaced repetition, a proven way to retain knowledge. You draw kanji by hand and the game recognizes your strokes with on-device machine learning, so practice feels like play.
+The learning engine uses FSRS, a proven way to retain knowledge. You draw kanji by hand and the game recognizes your strokes with on-device machine learning, so practice feels like play.
 
 Code is only one piece of the work. The pixel art, map design, and NPC writing are just as big a part of this project, if not bigger.
 
