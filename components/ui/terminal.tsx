@@ -94,29 +94,49 @@ export function Terminal({
           {title}
         </span>
       </div>
-      <div className="h-72 overflow-hidden p-4 font-mono text-[13px] leading-6 sm:h-80">
-        {visible.map((line, i) => {
-          const isTyping = line.partial !== undefined && line.cmd;
-          const text = line.partial ?? line.text;
-          const done = !isTyping || text === line.text;
-          return (
-            <div key={i} className="whitespace-pre-wrap">
+      {/* Both children share one grid cell. The aria-hidden ghost renders the
+          full session invisibly so the box is always tall enough for every
+          line at the current width (including wrapped ones); the live layer
+          animates on top without resizing anything. */}
+      <div className="grid p-4 font-mono text-[13px] leading-6 [&>*]:[grid-area:1/1]">
+        <div aria-hidden className="invisible">
+          {lines.map((line, i) => (
+            <div key={i} className="whitespace-pre-wrap break-words">
               {line.cmd && <Prompt />}
-              <span className={cn("text-zinc-100", line.className)}>
-                {text}
-              </span>
-              {!reducedMotion && i === visible.length - 1 && !done && (
-                <span className="animate-pulse text-zinc-100">▍</span>
-              )}
+              <span>{line.text}</span>
             </div>
-          );
-        })}
-        {!reducedMotion && pos.line >= lines.length && (
-          <div>
-            <Prompt />
-            <span className="animate-pulse text-zinc-100">▍</span>
-          </div>
-        )}
+          ))}
+          {!reducedMotion && (
+            <div>
+              <Prompt />
+              <span>▍</span>
+            </div>
+          )}
+        </div>
+        <div>
+          {visible.map((line, i) => {
+            const isTyping = line.partial !== undefined && line.cmd;
+            const text = line.partial ?? line.text;
+            const done = !isTyping || text === line.text;
+            return (
+              <div key={i} className="whitespace-pre-wrap break-words">
+                {line.cmd && <Prompt />}
+                <span className={cn("text-zinc-100", line.className)}>
+                  {text}
+                </span>
+                {!reducedMotion && i === visible.length - 1 && !done && (
+                  <span className="animate-pulse text-zinc-100">▍</span>
+                )}
+              </div>
+            );
+          })}
+          {!reducedMotion && pos.line >= lines.length && (
+            <div>
+              <Prompt />
+              <span className="animate-pulse text-zinc-100">▍</span>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
