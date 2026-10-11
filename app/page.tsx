@@ -49,7 +49,7 @@ export default async function HomePage() {
         title="Personal Projects"
         description="Built nights and weekends to learn something new."
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           {personal.map((project, index) => (
             <BlurFade
               key={project.slug}
@@ -85,8 +85,8 @@ export default async function HomePage() {
       <Section id="about" title="About Me">
         <BlurFade inView>
           <p className="max-w-2xl text-muted-foreground">
-            I&apos;ve built software professionally for more than 8 years, most
-            of it full stack. Outside of work I&apos;m finishing a
+            I&apos;ve built software professionally for {site.yearsExperience} years,
+            most of it full stack. Outside of work I&apos;m finishing a
             philosophy degree, planning the next trip to Japan, and keeping up
             with my little family, Kaitlin, Moose and Mochi.
           </p>

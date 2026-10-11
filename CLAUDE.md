@@ -2,7 +2,7 @@
 
 # Portfolio Site
 
-Static portfolio site for Bryan McNeil (bmcneil.t@gmail.com), full-stack software engineer. Recruiters are the audience; fast load and a strong first six seconds are the priorities.
+Static portfolio site for Bryan McNeil (bmcneil.t@gmail.com), Full Stack Engineer. Recruiters are the audience; fast load and a strong first six seconds are the priorities.
 
 ## Key documents
 - `project-scope.md`: original scope and goals

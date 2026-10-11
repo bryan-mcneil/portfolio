@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { getProject, getProjects } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { InDevelopmentBadge, TechBadges } from "@/components/project-card";
+import { StatusBadge, TechBadges } from "@/components/project-card";
 import { ShowcaseMedia } from "@/components/showcase-media";
 import { ProjectGallery } from "@/components/project-gallery";
 import { GitHubIcon } from "@/components/icons";
@@ -47,7 +47,7 @@ export default async function ProjectPage({
   if (index === -1) notFound();
 
   const project = projects[index];
-  // Wrap around so recruiters can keep paging through all five projects.
+  // Wrap around so recruiters can keep paging through every project.
   const previous = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
   const gallery = project.media.filter(
@@ -70,8 +70,11 @@ export default async function ProjectPage({
         <header>
           <h1 className="flex flex-wrap items-center gap-3 text-3xl font-bold tracking-tight sm:text-4xl">
             {project.title}
-            {project.inDevelopment && <InDevelopmentBadge />}
+            <StatusBadge status={project.status} />
           </h1>
+          <p className="mt-2 text-sm text-muted-foreground tabular-nums">
+            {project.dates}
+          </p>
           <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
             {project.tagline}
           </p>

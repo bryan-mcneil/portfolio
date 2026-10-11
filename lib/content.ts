@@ -18,6 +18,10 @@ const VIDEO_EXTENSIONS = new Set([".mp4", ".webm"]);
 
 export type ProjectCategory = "personal" | "professional";
 
+/** live: in production and linked; in-development: still being built; shipped: delivered and done. */
+export type ProjectStatus = "live" | "in-development" | "shipped";
+const PROJECT_STATUSES: readonly ProjectStatus[] = ["live", "in-development", "shipped"];
+
 export interface ProjectMedia {
   /** Public URL, e.g. /media/projects/helpdesk/helpdesk-summary.mp4 */
   src: string;
@@ -35,7 +39,9 @@ export interface Project {
   category: ProjectCategory;
   techStack: string[];
   featured: boolean;
-  inDevelopment: boolean;
+  status: ProjectStatus;
+  /** Human-readable range shown on cards and page headers, e.g. "Jan 2022 – Jun 2026". */
+  dates: string;
   order: number;
   /** Primary media for cards and the project page header. */
   showcase?: ProjectMedia;
@@ -113,6 +119,13 @@ async function loadProject(slug: string): Promise<Project> {
     );
   }
 
+  const status = required(data.status, "status", slug) as ProjectStatus;
+  if (!PROJECT_STATUSES.includes(status)) {
+    throw new Error(
+      `content/projects/${slug}/project-details.md has invalid status "${status}" (expected ${PROJECT_STATUSES.join(" | ")})`,
+    );
+  }
+
   const assetFiles = listAssets(slug);
   const assetSet = new Set(assetFiles);
   const altMap: Record<string, string> = data.alt ?? {};
@@ -144,7 +157,8 @@ async function loadProject(slug: string): Promise<Project> {
     category,
     techStack: required(data.techStack, "techStack", slug),
     featured: Boolean(data.featured),
-    inDevelopment: Boolean(data.inDevelopment),
+    status,
+    dates: String(required(data.dates, "dates", slug)),
     order: required(data.order, "order", slug),
     ...(showcase ? { showcase } : {}),
     ...(data.links ? { links: data.links } : {}),

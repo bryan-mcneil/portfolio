@@ -1,15 +1,16 @@
 ---
 title: TCM Security
 slug: tcm-security
-tagline: WordPress development using Divi to onboard new company
+tagline: WordPress migration for a newly acquired company, with custom PHP course filters.
 category: professional
+status: shipped
+dates: Jan 2022 – Jun 2026
 techStack:
   - WordPress
   - Divi
   - PHP
 featured: false
-inDevelopment: false
-order: 5
+order: 8
 showcase: tcm-filters-cards.webp
 alt:
   tcm-blog.webp: TCM Security blog index with a featured post announcing a new Windows forensics course
@@ -18,9 +19,9 @@ alt:
   tcm-membership.webp: Membership page comparing monthly, six month, and annual plans
 ---
 
-At Educate 360, we were tasked with onboarding a new company website, TCM Security. We updated the functionality and look of the academy pages. This was an all-hands project for the dev team. Our tech lead was Davison, and I worked closely with him to help fill in development gaps.
+At Educate 360, we were tasked with migrating a newly acquired company's website, TCM Security, to a new WordPress instance. We updated the functionality and look of the academy pages. This was an all-hands project for the dev team. Our tech lead was Davison, and I worked closely with him to help fill in development gaps.
 
-The major tasks I worked on were building the course filtering functionality and updating course card details. I handled exporting and importing the old blog site into the new WordPress instance, and made sure imported course content displayed correctly across all courses. I was also responsible for sourcing and managing the WordPress plugins required during the migration.
+The major tasks I worked on were building the custom PHP course filters and updating course card details. I handled the legacy blog migration, exporting and importing the old blog content into the new WordPress instance, and made sure imported course content displayed correctly across all courses. I was also responsible for sourcing and managing the WordPress plugins required during the migration.
 
 This project had me working in WordPress and Divi, as well as writing custom PHP backend code for the filtering system.
 

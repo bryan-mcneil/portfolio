@@ -82,8 +82,8 @@ export default function AboutPage() {
               About Me
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-              I&apos;m {site.name}, a full-stack software engineer with{" "}
-              {site.yearsExperience} years of experience building web applications.
+              I&apos;m {site.name}, a {site.title} with {site.yearsExperience} years
+              of experience building web applications.
               It has been a unique journey over the years, with ups and downs,
               but I&apos;ve learned a lot and grown as a developer.
               Here you can learn more about me outside of work, my philosophy degree, travel experiences, and the crew at home.
@@ -116,17 +116,18 @@ export default function AboutPage() {
       <Section id="how-i-work" title="How I Work">
         <BlurFade inView>
           <p className="max-w-2xl text-muted-foreground">
-            I'm the type who wants to know all the details of a system or project.
+            I&apos;m the type who wants to know all the details of a system or project.
             I want to understand the details so I can answer any questions with total accuracy.
             When a completely new technology lands on my desk, I jump straight in.
             I read the docs, follow the tutorials, and spin up local test environments, so
             whatever I build I have confidence in it working right.
-            I'll admit I can be a bit of a lone wolf when programming.
+            I&apos;ll admit I can be a bit of a lone wolf when programming.
             That independence just comes from wanting full working knowledge, so when it comes time
             to fix or build something, I can do it confidently and quickly.
-            I've learned over the years that every company operates differently and brings its own weird quirks.
-            My true core skill isn't just writing software.
-            It's adapting to those unique environments and stepping into whatever role the team needs most.
+            I&apos;ve learned over the years that every company operates differently and brings its own weird quirks.
+            My true core skill isn&apos;t just writing software.
+            It&apos;s adapting to those unique environments and stepping into whatever role the team needs most.
+            Right now that same habit has me studying for the AWS Solutions Architect – Associate exam.
           </p>
         </BlurFade>
       </Section>

@@ -9,13 +9,13 @@ import { Terminal, type TerminalLine } from "@/components/ui/terminal";
 
 const session: TerminalLine[] = [
   { cmd: true, text: "whoami" },
-  { text: "full-stack software engineer · 8+ years", className: "text-zinc-300" },
+  { text: "full stack engineer · 8 years", className: "text-zinc-300" },
   { cmd: true, text: "ls skills/" },
-  { text: "php/  laravel/  sql/  python/", className: "text-sky-300" },
-  { text: "azure/  ai_integration/  React/  web_design/", className: "text-sky-300" },
+  { text: "php/  laravel/  csharp/  dotnet/  sql_server/", className: "text-sky-300" },
+  { text: "react/  typescript/  python/  azure/  ai_integration/", className: "text-sky-300" },
   { cmd: true, text: "git log --oneline -3" },
   { text: "a41f2c9 ship AI ticket triage for helpdesk", className: "text-zinc-400" },
-  { text: "7d0e3b8 grade handwritten kanji with ML Kit", className: "text-zinc-400" },
+  { text: "7d0e3b8 grade handwritten kanji in pure dart", className: "text-zinc-400" },
   { text: "c92a615 automate azure data pipelines", className: "text-zinc-400" },
   { cmd: true, text: "echo $STATUS" },
   { text: "open to full-time roles", className: "text-emerald-300" },

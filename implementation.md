@@ -17,11 +17,11 @@ Companion to `project-scope.md`. All decisions below were agreed on 2026-07-01.
 | Featured projects | Helpdesk and Forgotten Kanji in the hero spotlight |
 | In-development badge | GadgetDrop and Forgotten Kanji |
 | Theme | Dark default with light/dark toggle (`next-themes`); accent: violet/indigo family, provisional until the design checkpoint |
-| Hero identity | "Bryan McNeil", "Full-Stack Software Engineer", 8+ years |
+| Hero identity | "Bryan McNeil", "Full Stack Engineer", 8 years (synced to the master resume, Oct 2026) |
 | Hero skills | TypeScript, React, Next.js, PHP / Laravel, PostgreSQL / MySQL, Azure, AI Integration |
 | Videos | Self-hosted, GIF-style: `<video autoplay muted loop playsinline>` with poster frames, ffmpeg-compressed, ~15s UI demo clips |
 | Images | Self-hosted, pre-optimized at build time (static export disables Next's image server) |
-| Resume | Bryan provides source content. Print-styled HTML page plus a static `/resume.pdf` the download button links to |
+| Resume | Bryan provides source content. Print-styled HTML page plus a static `/Bryan-McNeil-Resume.pdf` the download button links to |
 | About page | Intro + photo, "how I work", hobbies (philosophy degree, travel), photo strip with family and pets. Real first names are fine |
 | SEO scope | Minimal on purpose: per-page titles/descriptions and Open Graph images only. No sitemap, robots, JSON-LD, or analytics. Recruiters arrive by direct link |
 | Deploy workflow | `npm run build` produces `out/`; upload contents to Hostinger via hPanel File Manager or FTP |
@@ -64,7 +64,7 @@ Exit criteria: site runs locally, static export builds clean, nav and theme togg
      project-details.md   (frontmatter + markdown body)
      assets/              (screenshots, videos, posters)
    ```
-2. Define the frontmatter schema: `title`, `slug`, `tagline`, `category` (personal | professional), `techStack[]`, `featured`, `inDevelopment`, `order`, `showcase` (primary media file), optional `links` (live, github).
+2. Define the frontmatter schema: `title`, `slug`, `tagline`, `category` (personal | professional), `techStack[]`, `featured`, `status` (live | in-development | shipped), `dates`, `order`, `showcase` (primary media file), optional `links` (live, github).
 3. Content loader in `lib/content.ts` using `gray-matter` + a markdown renderer. All pages consume this one loader (DRY).
 4. Migrate `projects.md` into five `project-details.md` files, cleaning up copy per the writing rules in `project-scope.md` (no em dashes, no banned phrases, contractions, active voice).
 5. Media prep scripts (run manually as assets arrive, documented in README):
@@ -76,7 +76,7 @@ Exit criteria: `getProjects()` returns all five projects with parsed frontmatter
 
 ## Phase 3: Home Page and Design Checkpoint
 
-1. Hero: Aceternity background-beams (or similar) backdrop, Magic UI Blur Fade entrance, name, title, 8+ years line, skills row, primary CTA ("View Projects") and secondary CTA ("Resume").
+1. Hero: Aceternity background-beams (or similar) backdrop, Magic UI Blur Fade entrance, name, title, years line, skills row, primary CTA ("View Projects") and secondary CTA ("Resume").
 2. Featured spotlight: Helpdesk and Forgotten Kanji cards with showcase media, larger treatment than the grid.
 3. Reusable `ProjectCard`: full-card link to `/projects/[slug]`, tagline, tech badges, "In Development" badge where flagged. Used everywhere cards appear.
 4. Personal Projects section and Professional Projects section, each a grid of `ProjectCard`s.
@@ -102,7 +102,7 @@ Exit criteria: all five project pages render from content files alone; videos la
 
 1. Bryan provides the resume source; convert to a clean HTML page using shared typography components.
 2. Print stylesheet: white background regardless of theme, hide nav/footer/effects, sane margins, letter-size layout so Ctrl+P looks right.
-3. "Download PDF" button linking to `/resume.pdf` (static file Bryan maintains in `public/`).
+3. "Download PDF" button linking to `/Bryan-McNeil-Resume.pdf` (static file Bryan maintains in `public/`).
 
 Exit criteria: page reads well on screen, prints to one or two clean pages, PDF downloads.
 

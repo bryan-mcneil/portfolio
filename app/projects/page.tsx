@@ -30,8 +30,8 @@ export default async function ProjectsPage() {
           </h1>
           <p className="mt-4 max-w-3xl text-muted-foreground">
             I build full stack: React and TypeScript up front, PHP, Laravel,
-            and Node behind them, PostgreSQL or MySQL underneath, and Azure
-            keeping it all running. Lately I&apos;ve been wiring AI into real
+            C#/.NET, and Node behind them, SQL Server, MySQL, or PostgreSQL
+            underneath, and Azure keeping it all running. Lately I&apos;ve been wiring AI into real
             workflows, from auto-resolving support tickets to grading
             handwritten kanji. The professional work adds the other half of
             the job: leading projects end to end, coordinating across
@@ -48,7 +48,7 @@ export default async function ProjectsPage() {
         title="Personal Projects"
         description="Built nights and weekends to learn something new."
       >
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           {personal.map((project, index) => (
             <BlurFade
               key={project.slug}

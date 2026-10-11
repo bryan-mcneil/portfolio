@@ -30,7 +30,8 @@ Frontmatter fields:
 | `category` | `personal` or `professional` |
 | `techStack` | list shown as badges |
 | `featured` | hero spotlight on the home page |
-| `inDevelopment` | shows the In Development badge |
+| `status` | `live`, `in-development`, or `shipped`; rendered as a badge on cards and the page header |
+| `dates` | human-readable range shown on cards and the page header, e.g. `Jan 2022 – Jun 2026` (quote a bare year: `"2026"`) |
 | `order` | sort order across grids |
 | `showcase` | primary media filename inside `assets/` (optional) |
 | `links` | optional `live` / `github` URLs |
@@ -71,6 +72,8 @@ Absolute URLs (canonical, `og:url`, `og:image`) are baked in at build time from 
 2. Confirm `site.url` in `lib/site.ts` matches the live domain, then `npm run build`.
 3. Upload the contents of `out/` to `public_html`.
 4. Smoke test on the live domain: every route, video autoplay, theme toggle, resume PDF download, the mailto button, a shared link preview (LinkedIn), and mobile.
+
+The resume download serves `public/Bryan-McNeil-Resume.pdf`; replace that file whenever the master resume changes and keep the filename.
 
 ### Future `.pro` → `.dev` migration
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import type { Project } from "@/lib/content";
+import type { Project, ProjectStatus } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -11,15 +11,35 @@ import {
 } from "@/components/ui/card";
 import { ShowcaseMedia } from "@/components/showcase-media";
 
-export function InDevelopmentBadge() {
+const STATUS_BADGES: Record<ProjectStatus, { label: string; className: string }> = {
+  live: {
+    label: "Live",
+    className:
+      "border-emerald-700/40 text-emerald-700 dark:border-emerald-400/40 dark:text-emerald-400",
+  },
+  "in-development": {
+    label: "In Development",
+    className:
+      "border-amber-700/40 text-amber-700 dark:border-amber-400/40 dark:text-amber-400",
+  },
+  shipped: {
+    label: "Shipped",
+    className:
+      "border-sky-700/40 text-sky-700 dark:border-sky-400/40 dark:text-sky-400",
+  },
+};
+
+export function StatusBadge({ status }: { status: ProjectStatus }) {
+  const { label, className } = STATUS_BADGES[status];
   return (
-    <Badge
-      variant="outline"
-      className="border-amber-700/40 text-amber-700 dark:border-amber-400/40 dark:text-amber-400"
-    >
-      In Development
+    <Badge variant="outline" className={className}>
+      {label}
     </Badge>
   );
+}
+
+function ProjectDates({ dates }: { dates: string }) {
+  return <p className="text-xs text-muted-foreground tabular-nums">{dates}</p>;
 }
 
 export function TechBadges({ stack }: { stack: readonly string[] }) {
@@ -45,8 +65,9 @@ export function ProjectCard({ project }: { project: Project }) {
         <CardHeader>
           <CardTitle className="flex flex-wrap items-center gap-2 text-lg">
             {project.title}
-            {project.inDevelopment && <InDevelopmentBadge />}
+            <StatusBadge status={project.status} />
           </CardTitle>
+          <ProjectDates dates={project.dates} />
           <CardDescription>{project.tagline}</CardDescription>
         </CardHeader>
         <CardContent className="mt-auto">
@@ -93,8 +114,9 @@ export function FeaturedProjectCard({ project }: { project: Project }) {
         <CardHeader>
           <CardTitle className="flex flex-wrap items-center gap-2 text-xl">
             {project.title}
-            {project.inDevelopment && <InDevelopmentBadge />}
+            <StatusBadge status={project.status} />
           </CardTitle>
+          <ProjectDates dates={project.dates} />
           <CardDescription className="text-base">
             {project.tagline}
           </CardDescription>
